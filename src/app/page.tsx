@@ -1,8 +1,10 @@
 import Image from "next/image";
+import { Analytics } from "@vercel/analytics/react"
 
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-8 pb-20 gap-8 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <Analytics />
       <p className="">{`i'm cookin'`}, stay tuned...</p>
       <p className="">meanwhile, <a href="https://topmate.io/join/abdibrokhim" className="underline text-bold" target="_blank">join topmate.io using this link</a> and get exclusive offers from me!</p>
       <script
