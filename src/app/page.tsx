@@ -3,14 +3,16 @@ import { Analytics } from "@vercel/analytics/react"
 
 export default function Home() {
   return (
-    <div className=""
-    >
-      <a href="https://theopencommunity.vercel.app/" 
+    <div className="">
+                <h6 className="text-md font-bold text-center my-8 text-[var(--text)]">
+            Click the image below to reveal the stuff...
+          </h6>
+      <a href="https://theopencommunity.co" 
         target="_blank"
         rel="noopener noreferrer"
       >
         <div className="grid grid-rows-[20px_1fr_20px] items-center bg-contain bg-no-repeat bg-center relative justify-items-center min-h-screen font-[family-name:var(--font-geist-sans)]"
-          style={{ backgroundImage: "url('/intro.png')"}}
+          style={{ backgroundImage: "url('/no-giveaway.png')"}}
         >
           <Analytics />
           <div className="relative z-10 text-center px-4">
