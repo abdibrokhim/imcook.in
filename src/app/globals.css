@@ -3,42 +3,49 @@
 @tailwind utilities;
 
 :root {
-  --primary: #335fff;
-  --secondary: #528bff;
-  --button: #3337FF;
-  --tertiary: #1f2024;
-  --surface: #e5e5e6;
-  --tint: #A1A2A5;
-  --text: #BBBCBE;
-  --background: rgb(17, 18, 22);
-  --foreground: #ededed;
-  --selection-bg: hsla(var(--primary), 50%) !important;
-  --selection-color: #335fff;
+  --violet: #625df5;
+  --ring: #625df580;
+  --bg-a: #0B0E11;
+  --text-a: #FFFFFF;
+  --text-b: #C3C4C7;
+  --text-c: #787B89;
+  --orange: #ee5d19;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary: #335fff;
-    --secondary: #528bff;
-    --button: #3337FF;
-    --tertiary: #1f2024;
-    --surface: #e5e5e6;
-    --tint: #A1A2A5;
-    --text: #BBBCBE;
-    --background: rgb(17, 18, 22);
-    --foreground: #ededed;
-    --selection-bg: hsla(var(--secondary), 50%) !important;
-    --selection-color: #335fff;
+    --violet: #625df5;
+    --bg-a: #0B0E11;
+    --text-a: #FFFFFF;
+    --text-b: #C3C4C7;
+    --text-c: #787B89;
+    --orange: #ee5d19;
   }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--text-a);
+  background: var(--bg-a);
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.noselect {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Internet Explorer/Edge */
+  user-select: none;         /* Non-prefixed version, currently supported by Chrome, Opera, and others */
+}
+.nodrag {
+  pointer-events: none;      /* Prevents mouse events on the image */
+}
+
 ::selection {
-  background-color: var(--selection-bg);
-  color: var(--selection-color);
+  background-color: var(--violet);
+  color: var(--text-a);
 }
