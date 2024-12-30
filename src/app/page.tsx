@@ -43,8 +43,8 @@ export default function Home() {
     },
     {
       id: 1,
-      name: 'i make things, therefore i am.',
-      imgPath: '/cards/i-make-things-therefore-i-am.png',
+      name: 'MY 2024 WRAPPED',
+      imgPath: '/cards/my2024wrapped.png',
     },
   ]
 
@@ -79,9 +79,10 @@ export default function Home() {
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center">Ibrohim Abdivokhidov</h1>
 
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">&quot;i make things, therefore i am.&quot;</h1>
-        <p className='text-xs text-[var(--text-b)] text-center'>Looking for my sis TechGirls25 application? <a className='hover:text-[hsl(var(--teal-700))] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] rounded-full' href='/sis/techgirls25' target='_blank'>Click me</a></p>
-        <div className="mb-8 flex justify-center shadow-[0_0_20px_rgba(255,255,255,0.25)]">
-
+        <p className='text-xs text-[var(--text-b)] text-center'>Looking for my sis TechGirls25 application? <a className='hover:text-[hsl(var(--teal-700))] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] rounded-full' href='/sis/techgirls25' target='_blank'>It's here</a></p>
+        <div className="flex flex-col p-12 justify-center items-center shadow-[0_0_20px_rgba(255,255,255,0.25)]">
+          <p className='animate-pulse text-2xl'>loading...</p>
+          <p className='text-xs mt-2'>meanwhile feel free to check out <a className='ml-1 hover:text-[hsl(var(--teal-700))] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] rounded-full' href='https://github.com/abdibrokhim/wrapped24' target='_blank'>MY 2024 WRAPPED</a></p>
         </div>
 
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">My Cookies</h1>
@@ -167,6 +168,7 @@ export default function Home() {
             <span className='mr-1'>generate your own card</span>
           </Button>
         </div>
+        <p className='text-xs text-[var(--text-b)] text-center'>Did you like this website design? <a className='hover:text-[hsl(var(--teal-700))] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] rounded-full' href='https://github.com/abdibrokhim/imcook.in' target='_blank'>Fork on Github</a></p>
       </main>
       <Footer />
     </div>

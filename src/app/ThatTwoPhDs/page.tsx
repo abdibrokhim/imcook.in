@@ -289,6 +289,7 @@ export default function Home() {
             <span className='mr-1'>generate your own card</span>
           </Button>
         </div>
+        <p className='text-xs text-[var(--text-b)] text-center'>Did you like this website design? <a className='hover:text-[hsl(var(--teal-700))] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] rounded-full' href='https://github.com/abdibrokhim/imcook.in' target='_blank'>Fork on Github</a></p>
       </main>
       <Footer />
     </div>
