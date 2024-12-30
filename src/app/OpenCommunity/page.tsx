@@ -176,7 +176,7 @@ export default function Home() {
                 <div className='text-center'>
                   <h2 className="text-xl font-bold text-[var(--button-bg)]">{member.name}</h2>
                   <p className='text-[var(--text-b)]'>{member.role}</p>
-                  <p className='text-[var(--text-c)] text-xs'>"{member.ps}"</p>
+                  <p className='text-[var(--text-c)] text-xs'>&quot;{member.ps}&quot;</p>
                 </div>
               </div>
               <div className='flex space-x-4 items-center justify-center'>
