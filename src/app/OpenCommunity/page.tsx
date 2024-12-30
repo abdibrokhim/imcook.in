@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback } from 'react';
 import { Analytics } from "@vercel/analytics/react"
 import Footer from '../components/Footer';
 import { Button } from "../components/ui/button"
