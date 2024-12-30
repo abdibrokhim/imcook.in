@@ -17,6 +17,16 @@
   --teal-700: 172.46 66.01% 50.39%;
   --hex-teal-100: #042F2E;
   --hex-teal-700: #2DD4BF;
+  --purple-a: #00010D;
+  --purple-b: #010326;
+  --purple-c: #2D0140;
+  --purple-d: #660273;
+  --purple-e: #A305A6;
+  --cyber-a: #00ff9f; 
+  --cyber-b: #ff1cc0; 
+  --cyber-c: #b131fa; 
+  --cyber-d: #4a0074; 
+  --cyber-e: #1c3aff; 
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,7 +37,7 @@
     --white: #FFFFFF;
     --ring: #625df580;
     --text-a: #FFFFFF;
-    --text-b: #0d0d0e;
+    --text-b: #C3C4C7;
     --text-c: #787B89;
     --violet: #625df5;
     --orange: #ee5d19;
@@ -35,12 +45,23 @@
     --teal-700: 172.46 66.01% 50.39%;
     --hex-teal-100: #042F2E;
     --hex-teal-700: #2DD4BF;
+    --purple-a: #00010D;
+    --purple-b: #010326;
+    --purple-c: rgb(45, 1, 64);
+    --purple-d: #660273;
+    --purple-e: rgb(163, 5, 166);
+    --cyber-a: #00ff9f; 
+    --cyber-b: #ff1cc0; 
+    --cyber-c: #b131fa; 
+    --cyber-d: #4a0074; 
+    --cyber-e: #1c3aff; 
   }
 }
 
 body {
   color: var(--white);
-  background: var(--bg-a);
+  background: var(--black-light);
+  background-image: url('/public/assets/bg.jpg');
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
