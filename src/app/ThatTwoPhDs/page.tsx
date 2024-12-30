@@ -216,7 +216,7 @@ export default function Home() {
             </div>
             <div className='text-start'>
                 <h2 className="text-xl font-bold text-[var(--button-bg)]">Get access other 40+ applications. Listen to the Podcast and Deep Dive into Applications. Download Applications and Podcast in a High Quality. Complete analysis and etc.</h2>
-                <h2 className="text-lg font-bold text-[var(--text-b)]">Click "Explore All" rn!</h2>
+                <h2 className="text-lg font-bold text-[var(--text-b)]">Click &quot;Explore All&quot; rn!</h2>
             </div>
             <div className='grid grid-cols-1 sm:grid-cols-3 gap-4 w-full'>
                 <Button 
