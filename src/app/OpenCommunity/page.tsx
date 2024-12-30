@@ -16,7 +16,7 @@ export default function Home() {
       title: 'Github',
       content: 'I bet, my tutorials are the most interesting and... the best.',
       buttonText: 'Learn Build Stuff',
-      buttonLink: 'https://github.com/abdibrokhim'
+      buttonLink: 'https://github.com/abdibrokhim/wrapped24/blob/main/README.md#courses--tutorials'
     },
     {
       id: 1,
@@ -99,14 +99,44 @@ export default function Home() {
     }
   ]
 
-  const handleDownload = useCallback(async (type: number) => {
+  const cutesyCards = [
+    {
+      id: 0,
+      name: 'Open Community Card (Yellow)',
+      imgPath: '/cards/opecommunity-yellow.png',
+    },
+    {
+      id: 1,
+      name: 'Open Community Card (Light)',
+      imgPath: '/cards/opencommunity-light.png',
+    },
+    {
+      id: 2,
+      name: 'Open Community Card (Red)',
+      imgPath: '/cards/opencommunity-red.png',
+    },
+    {
+      id: 3,
+      name: 'Open Community Card (Cyberpunk)',
+      imgPath: '/cards/opencommunity.png',
+    },
+  ]
+
+  const brandStuff = [
+    {
+      id: 0,
+      name: 'Open_Community_Logo.png',
+      imgPath: '/assets/oc-logo.png',
+    },
+    {
+      id: 1,
+      name: 'Open_Community_Cover.png',
+      imgPath: '/assets/oc-cover-1.png',
+    },
+  ]
+
+  const handleDownload = useCallback(async (downloadUrl: string, downloadName: string) => {
     try {
-      const logoUrl = '/assets/oc-logo.png'
-      const coverUrl = '/assets/oc-cover-1.png'
-      const logoName = 'Open_Community_Logo.png'
-      const coverName = 'Open_Community_Cover.png'
-      const downloadUrl = type === 0 ? logoUrl : coverUrl
-      const downloadName = type === 0 ? logoName : coverName
       const a = document.createElement('a')
       a.href = downloadUrl
       a.download = downloadName
@@ -183,12 +213,14 @@ export default function Home() {
                 <Button 
                   onClick={() => window.open(member.twitter, '_blank')} 
                   variant="default"
+                  className='w-full'
                 >
-                  Twitter
+                  X (twitter)
                 </Button>
                 <Button 
                   onClick={() => window.open(member.linkedin, '_blank')} 
                   variant="default"
+                  className='w-full'
                 >
                   LinkedIn
                 </Button>
@@ -211,7 +243,7 @@ export default function Home() {
             </div>
             <p className='text-xs text-[var(--text-b)]'>size: 1440x1440</p>
             <Button 
-              onClick={() => handleDownload(0)} 
+              onClick={() => handleDownload(brandStuff[0].imgPath, brandStuff[0].name)} 
               variant="default"
               className="w-fit"
             >
@@ -230,13 +262,51 @@ export default function Home() {
             </div>
             <p className='text-xs text-[var(--text-b)]'>size: 1920x1080</p>
             <Button 
-              onClick={() => handleDownload(1)} 
+              onClick={() => handleDownload(brandStuff[1].imgPath, brandStuff[1].name)} 
               variant="default"
               className="w-fit"
             >
               Download Cover
             </Button>
           </div>
+        </div>
+
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">Cutesy Cards</h1>
+        <div className='grid grid-cols-1 sm:grid-cols-2 gap-12'>
+          {cutesyCards.map((card) => (
+            <div key={card.id} className='flex flex-col gap-4 p-4 rounded-lg shadow-[0_0_20px_rgba(255,255,255,0.25)]'>
+              <div className='flex flex-col gap-4 items-center justify-center'>
+                <div className="w-full h-full rounded-lg overflow-hidden">
+                  <Image 
+                    src={card.imgPath}
+                    alt={card.name}
+                    width={200}
+                    height={200}
+                    className='w-full h-full object-cover'
+                  />
+                </div>
+                <div className='text-center'>
+                  <h2 className="text-xl font-bold text-[var(--button-bg)]">{card.name}</h2>
+                </div>
+              </div>
+              <div className='flex space-x-4 items-center justify-center'>
+                <Button 
+                  onClick={() => window.open(card.imgPath, '_blank')} 
+                  variant="default"
+                  className='w-full'
+                >
+                  View Card
+                </Button>
+                <Button 
+                  onClick={() => handleDownload(card.imgPath, card.name)}
+                  variant="default"
+                  className='w-full'
+                >
+                  Download Card
+                </Button>
+              </div>
+            </div>
+          ))}
         </div>
 
         <div className='flex text-xs justify-center space-x-4'>
