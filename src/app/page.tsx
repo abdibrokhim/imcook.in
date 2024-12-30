@@ -7,7 +7,6 @@ import { loader } from './utils/loader';
 import { Analytics } from "@vercel/analytics/react"
 import Footer from './components/Footer';
 import { Button } from "./components/ui/button"
-import Card from './components/Card'
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -16,19 +15,19 @@ export default function Home() {
     {
       id: 0,
       name: 'That Two PhDs',
-      pagePath: '/projects/ThatTwoPhDs',
+      pagePath: '/ThatTwoPhDs',
       coverPath: '/assets/thattwophds.png',
     },
     {
       id: 1,
       name: 'just make things',
-      pagePath: '/projects/JustMakeThings',
+      pagePath: '/JustMakeThings',
       coverPath: '/assets/justmakethings.png',
     },
     {
       id: 2,
       name: 'Open Community',
-      pagePath: '/projects/OpenCommunity',
+      pagePath: '/OpenCommunity',
       coverPath: '/assets/opencommunity.png',
     }
   ]
@@ -49,7 +48,7 @@ export default function Home() {
   return (
     <div className="min-h-screen p-4 sm:p-8 md:p-12 lg:p-20">
       <Analytics />
-      <main className="max-w-4xl mx-auto space-y-8">
+      <main className="max-w-4xl mx-auto space-y-12">
         <div className="mb-8 flex justify-center shadow-[0_0_20px_rgba(255,255,255,0.25)]">
           <Image 
             src="/logo.svg"
