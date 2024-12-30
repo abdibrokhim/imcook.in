@@ -3,49 +3,48 @@
 @tailwind utilities;
 
 :root {
-  --violet: #625df5;
-  --ring: #625df580;
+  --black-light: #0e1216;
   --bg-a: #0B0E11;
+  --black: #000000;
+  --white: #FFFFFF;
+  --ring: #625df580;
   --text-a: #FFFFFF;
   --text-b: #C3C4C7;
   --text-c: #787B89;
+  --violet: #625df5;
   --orange: #ee5d19;
+  --teal-100: 178.6 84.31% 10%;
+  --teal-700: 172.46 66.01% 50.39%;
+  --hex-teal-100: #042F2E;
+  --hex-teal-700: #2DD4BF;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --violet: #625df5;
+    --black-light: #0e1216;
     --bg-a: #0B0E11;
+    --black: #000000;
+    --white: #FFFFFF;
+    --ring: #625df580;
     --text-a: #FFFFFF;
-    --text-b: #C3C4C7;
+    --text-b: #0d0d0e;
     --text-c: #787B89;
+    --violet: #625df5;
     --orange: #ee5d19;
+    --teal-100: 178.6 84.31% 10%;
+    --teal-700: 172.46 66.01% 50.39%;
+    --hex-teal-100: #042F2E;
+    --hex-teal-700: #2DD4BF;
   }
 }
 
 body {
-  color: var(--text-a);
+  color: var(--white);
   background: var(--bg-a);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-.noselect {
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none;    /* Firefox */
-  -ms-user-select: none;     /* Internet Explorer/Edge */
-  user-select: none;         /* Non-prefixed version, currently supported by Chrome, Opera, and others */
-}
-.nodrag {
-  pointer-events: none;      /* Prevents mouse events on the image */
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 ::selection {
-  background-color: var(--violet);
-  color: var(--text-a);
+  background-color: hsl(var(--teal-100)) !important;
+  color: hsl(var(--teal-700)) !important;
 }
