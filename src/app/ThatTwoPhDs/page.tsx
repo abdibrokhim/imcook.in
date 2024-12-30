@@ -194,7 +194,7 @@ export default function Home() {
                     Deep Dive
                     </Button>
                     <Button 
-                        onClick={() => handleDownload(appl.getAccess, appl.name)}
+                        onClick={() => window.open(appl.getAccess, '_blank')}
                         variant="default"
                         className='w-full'
                     >

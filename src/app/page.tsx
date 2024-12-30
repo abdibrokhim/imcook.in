@@ -35,6 +35,19 @@ export default function Home() {
     }
   ]
 
+  const cutesyCards = [
+    {
+      id: 0,
+      name: 'i make things, therefore i am.',
+      imgPath: '/cards/i-make-things-therefore-i-am.png',
+    },
+    {
+      id: 1,
+      name: 'i make things, therefore i am.',
+      imgPath: '/cards/i-make-things-therefore-i-am.png',
+    },
+  ]
+
   const handleShare = useCallback(async (projectName: string) => {
     try {
       const text = `this project is sooooo crazy ${projectName}!\nhere: imcook.in\n#justmakethings`
@@ -48,20 +61,27 @@ export default function Home() {
     }
   }, [])
 
+  const handleDownload = useCallback(async (downloadUrl: string, downloadName: string) => {
+    try {
+      const a = document.createElement('a')
+      a.href = downloadUrl
+      a.download = downloadName
+      a.click()
+    } catch (error) {
+      console.error('An error occurred:', error)
+    }
+  }, [])
+
   return (
     <div className="min-h-screen p-4 sm:p-8 md:p-12 lg:p-20">
       <Analytics />
       <main className="max-w-4xl mx-auto space-y-12">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center">Ibrohim Abdivokhidov</h1>
 
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">i make things, therefore i am.</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">&quot;i make things, therefore i am.&quot;</h1>
+        <p className='text-xs text-[var(--text-b)] text-center'>Looking for my sis TechGirls25 application? <a className='hover:text-[hsl(var(--teal-700))] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] rounded-full' href='/sis/techgirls25' target='_blank'>Click me</a></p>
         <div className="mb-8 flex justify-center shadow-[0_0_20px_rgba(255,255,255,0.25)]">
-          <Image 
-            src="/logo.svg"
-            alt="logo"
-            width={200}
-            height={200}
-          />
+
         </div>
 
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">My Cookies</h1>
@@ -98,6 +118,44 @@ export default function Home() {
               </Button>
             </div>
           </div>
+          ))}
+        </div>
+
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">Cutesy Cards</h1>
+        <div className='grid grid-cols-1 sm:grid-cols-2 gap-12'>
+          {cutesyCards.map((card) => (
+            <div key={card.id} className='flex flex-col gap-4 p-4 rounded-lg shadow-[0_0_20px_rgba(255,255,255,0.25)]'>
+              <div className='flex flex-col gap-4 items-center justify-center'>
+                <div className="w-full h-full rounded-lg overflow-hidden">
+                  <Image 
+                    src={card.imgPath}
+                    alt={card.name}
+                    width={200}
+                    height={200}
+                    className='w-full h-full object-cover'
+                  />
+                </div>
+                <div className='text-center'>
+                  <h2 className="text-xl font-bold text-[var(--button-bg)]">{card.name}</h2>
+                </div>
+              </div>
+              <div className='flex space-x-4 items-center justify-center'>
+                <Button 
+                  onClick={() => window.open(card.imgPath, '_blank')} 
+                  variant="default"
+                  className='w-full'
+                >
+                  View Card
+                </Button>
+                <Button 
+                  onClick={() => handleDownload(card.imgPath, card.name)}
+                  variant="default"
+                  className='w-full'
+                >
+                  Download Card
+                </Button>
+              </div>
+            </div>
           ))}
         </div>
         
