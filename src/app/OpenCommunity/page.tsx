@@ -1,11 +1,12 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Analytics } from "@vercel/analytics/react"
 import Footer from '../components/Footer';
 import { Button } from "../components/ui/button"
 import { SocialCard } from '../components/SocialCard';
+import { SponsoredCard } from '../components/SponsoredCard';
 
 export default function Home() {
 
@@ -146,6 +147,34 @@ export default function Home() {
     }
   }, [])
 
+  const [expandedPodcast, setExpandedPodcast] = useState<number | null>(null);
+  const allProjects = [
+    {
+      id: 0,
+      name: 'CoMed',
+      title: 'The Open Source fully autonomous AI Brain MRI analysis & diagnosis platform for doctors to help their patients.',
+      info: "An AI platform transforming Brain MRI diagnostics to be easier, faster, and more accessible, especially in underserved rural areas. By integrating advanced AI into hospital workflows, we boost diagnostic accuracy from 84% to 95% and reduce waiting times from days to 15-30 minutes. Targeting hospitals and clinics lacking advanced diagnostics and radiologists, we aim to bridge critical healthcare gaps.",
+      imgPath: '/assets/CoMed.png',
+      learnMore: 'https://www.theopencommunity.co/'
+    },
+    {
+      id: 1,
+      name: 'PaperAI',
+      title: 'The Open Source Collaborative AI Research Platform.',
+      info: 'Researchers and scholars often face challenges like information overload and time-consuming literature review. Aside from making personal notes, Paper Ai enables users to annotate, discuss collaboratively and ask AI for quick summary on complex points across a piece of article or research paper. It fosters a shared learning ecosystem and encourages collaboration across disciplines and geographic boundaries.',
+      imgPath: '/assets/PaperAI.png',
+      learnMore: 'https://www.theopencommunity.co/'
+    },
+    {
+      id: 2,
+      name: 'PrepAlly',
+      title: 'The Open Source AI-powered coding prep platform, offering real-time feedback, voice-guided insights, and secure, interactive practice.',
+      info: 'Current tools offer practice but fall short of providing the interactive, AI-driven insights candidates need to feel truly prepared. Interviews are still notoriously stressful, leaving candidates feeling unprepared despite available resources. PrepAlly changes that by delivering real-time feedback and personalized insights, empowering candidates with the confidence and readiness to ace their interviews.',
+      imgPath: '/assets/PrepAlly.png',
+      learnMore: 'https://www.theopencommunity.co/'
+    }
+  ]
+
   return (
     <div className="min-h-screen p-4 sm:p-8 md:p-12 lg:p-20">
       <Analytics />
@@ -189,7 +218,75 @@ export default function Home() {
           ))}
         </div>
 
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">Leadership Team</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">Explore All Projects</h1>
+        <div className='grid grid-cols-1 sm:grid-cols-2 gap-12'>
+          {...allProjects.map((project) => (
+            <div key={project.id} className={`relative flex flex-col gap-4 p-4 rounded-lg ${project.id === 3 ? 'shadow-[0_0_20px_rgba(45,212,191,0.25)]' : 'shadow-[0_0_20px_rgba(255,255,255,0.25)]'}`}>
+              {project.id === 3 ? (
+                <p className='absolute top-6 left-6 text-[var(--text-b)] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] opacity-80 text-xs rounded-full'>newest</p>
+              ) : null}
+              <div className='flex flex-col h-full gap-4 items-start justify-center'>
+                <div className="w-full h-full rounded-lg overflow-hidden">
+                  <Image 
+                    src={project.imgPath}
+                    alt={project.name}
+                    width={200}
+                    height={200}
+                    className='w-full h-full object-cover'
+                  />
+                </div>
+                <div className='text-start'>
+                  <h2 className="text-xl font-bold text-[var(--button-bg)]">{project.name}: {project.title}</h2>
+                  <div className='text-[var(--text-b)]'>
+                    {project.info.slice(0, 150)}
+                    {project.info.length > 150 && (
+                      <div className="flex flex-col gap-2">
+                        {expandedPodcast === project.id && (
+                          <span>{project.info.slice(150)}</span>
+                        )}
+                        <button 
+                          onClick={() => setExpandedPodcast(expandedPodcast === project.id ? null : project.id)}
+                          className="text-start text-xs text-[var(--text-c)] hover:underline"
+                        >
+                          {expandedPodcast === project.id ? 'read less' : 'read more'}
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className='flex space-x-4 items-center justify-center'>
+                <Button 
+                  onClick={() => window.open(project.learnMore, '_blank')} 
+                  variant={project.id === 3 ? 'destructive' : 'default'}
+                  className='w-full'
+                >
+                  Learn More
+                </Button>
+                <Button 
+                  onClick={() => window.open(project.learnMore, '_blank')}
+                  variant={project.id === 3 ? 'destructive' : 'default'}
+                  className='w-full'
+                >
+                  Explore More
+                </Button>
+              </div>
+            </div>
+          ))}
+          {/* sponsored card */}
+          <SponsoredCard 
+            title="Learn How To Build Real World Stuff"
+            info="What you will learn?"
+            about="Get hands-on with real AI projects - from transforming modern websites with a retro 90s vibe to building an AI coding interviewer, launching your own AI startup, chatting with documents, generating AI stickers, and even creating Chrome extensions. You'll dive into top tech stacks (Next.js, React, Tailwind CSS, AI/ML APIs, OpenAI, and other tons of potential tools), learn prompt engineering, deploy like a pro on Vercel, and level up your dev game with rapid prototyping skills."
+            quote="Ibrohim Abdivokhidov - &quot;1st AI/ML API Regional Ambassador in Central Asia | Founder & CEO at Open Community (170+ 🧑‍💻) | 60+ Hackathons | Open Source contr. at Anarchy Labs (500+ ⭐️), Langflow (35K+ ⭐️) | Mentor (200K+ 🧑‍🎓) | Author (5+ 📚)&quot;"
+            firstButtonText="Start Learning"
+            firstButtonLink="/JustMakeThings"
+            secondButtonText="Contact ME"
+            secondButtonLink="https://linkedin.com/in/abdibrokhim"
+          />
+        </div>
+
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">The Best Cracked Team</h1>
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-12'>
           {leadershipTeamData.map((member) => (
             <div key={member.id} className='flex flex-col gap-4 p-4 rounded-lg shadow-[0_0_20px_rgba(255,255,255,0.25)]'>
@@ -242,6 +339,7 @@ export default function Home() {
               />
             </div>
             <p className='text-xs text-[var(--text-b)]'>size: 1440x1440</p>
+            <p className='text-xs text-[var(--text-b)]'>color: #000000, #ffffff</p>
             <Button 
               onClick={() => handleDownload(brandStuff[0].imgPath, brandStuff[0].name)} 
               variant="default"
@@ -261,6 +359,7 @@ export default function Home() {
               />
             </div>
             <p className='text-xs text-[var(--text-b)]'>size: 1920x1080</p>
+            <p className='text-xs text-[var(--text-b)]'>color: #000000, #ffffff</p>
             <Button 
               onClick={() => handleDownload(brandStuff[1].imgPath, brandStuff[1].name)} 
               variant="default"

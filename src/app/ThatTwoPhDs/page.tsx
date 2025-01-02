@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/react"
 import Footer from '../components/Footer';
 import { Button } from "../components/ui/button"
 import { SocialCard } from '../components/SocialCard';
+import { SponsoredCard } from '../components/SponsoredCard';
 
 export default function Home() {
     const [expandedPodcast, setExpandedPodcast] = useState<number | null>(null);
@@ -207,7 +208,7 @@ export default function Home() {
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-12'>
             {applicationsData.map((appl) => (
               <div key={appl.id} className='flex flex-col gap-4 p-4 rounded-lg shadow-[0_0_20px_rgba(255,255,255,0.25)]'>
-                <div className='flex flex-col h-full gap-4 items-center justify-center'>
+                <div className='flex flex-col h-full gap-4 items-start justify-center'>
                     <div className="w-full h-full rounded-lg overflow-hidden">
                     <Image 
                         src={appl.imgPath}
@@ -217,7 +218,7 @@ export default function Home() {
                         className='w-full h-full object-cover'
                     />
                     </div>
-                    <div className='text-center'>
+                    <div className='text-start'>
                     <h2 className="text-xl font-bold text-[var(--button-bg)]">{appl.name}</h2>
                     </div>
                 </div>
@@ -240,46 +241,17 @@ export default function Home() {
               </div>
             ))}
             {/* sponsored card */}
-            <div className='relative flex flex-col gap-4 p-4 rounded-lg shadow-[0_0_20px_rgba(45,212,191,0.25)]'>
-              <p className='absolute top-6 left-6 text-[var(--text-b)] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] opacity-80 text-xs rounded-full'>sponsored</p>
-              <div className='flex flex-col gap-4 items-start justify-center'>
-                  <div className="w-full h-full rounded-lg overflow-hidden">
-                    <Image 
-                        src="/applications/makethings-cover.png"
-                        alt="Learn Build Stuff"
-                        width={200}
-                        height={200}
-                        className='w-full h-full object-cover'
-                    />
-                  </div>
-                  <div className='text-start'>
-                    <h2 className="text-xl font-bold text-[hsl(var(--teal-700))] bg-[hsl(var(--teal-100))] inline p-1">Learn How To Build Real World Stuff</h2>
-                    <div className='flex flex-col gap-2 mt-2'>
-                      <p className='text-[var(--text-b)]'>What you will learn?</p>
-                      <p className='text-[var(--text-b)]'>Get hands-on with real AI projects - from transforming modern websites with a retro 90s vibe to building an AI coding interviewer, launching your own AI startup, chatting with documents, generating AI stickers, and even creating Chrome extensions. You&apos;ll dive into top tech stacks (Next.js, React, Tailwind CSS, AI/ML APIs, OpenAI, and other tons of potential tools), learn prompt engineering, deploy like a pro on Vercel, and level up your dev game with rapid prototyping skills.</p>
-                      <p className='text-[var(--text-b)]'>Ibrohim Abdivokhidov - &quot;1st AI/ML API Regional Ambassador in Central Asia | Founder & CEO at Open Community (170+ 🧑‍💻) | 60+ Hackathons | Open Source contr. at Anarchy Labs (500+ ⭐️), Langflow (35K+ ⭐️) | Mentor (200K+ 🧑‍🎓) | Author (5+ 📚)&quot;</p>
-                      <p className='text-[var(--text-b)]'>- let&apos;s make things!</p>
-                    </div>
-                  </div>
-              </div>
-              <div className='flex space-x-4 items-center justify-center'>
-                  <Button 
-                      onClick={() => window.open("/JustMakeThings", '_blank')} 
-                      variant="destructive"
-                      className='w-full'
-                  >
-                  Deep Dive
-                  </Button>
-                  <Button 
-                      onClick={() => window.open("/JustMakeThings", '_blank')}
-                      variant="destructive"
-                      className='w-full'
-                  >
-                  Get Access
-                  </Button>
-              </div>
-            </div>
-        </div>
+            <SponsoredCard 
+              title="Learn How To Build Real World Stuff"
+              info="What you will learn?"
+              about="Get hands-on with real AI projects - from transforming modern websites with a retro 90s vibe to building an AI coding interviewer, launching your own AI startup, chatting with documents, generating AI stickers, and even creating Chrome extensions. You'll dive into top tech stacks (Next.js, React, Tailwind CSS, AI/ML APIs, OpenAI, and other tons of potential tools), learn prompt engineering, deploy like a pro on Vercel, and level up your dev game with rapid prototyping skills."
+              quote="Ibrohim Abdivokhidov - &quot;1st AI/ML API Regional Ambassador in Central Asia | Founder & CEO at Open Community (170+ 🧑‍💻) | 60+ Hackathons | Open Source contr. at Anarchy Labs (500+ ⭐️), Langflow (35K+ ⭐️) | Mentor (200K+ 🧑‍🎓) | Author (5+ 📚)&quot;"
+              firstButtonText="Start Learning"
+              firstButtonLink="/JustMakeThings"
+              secondButtonText="Contact ME"
+              secondButtonLink="https://linkedin.com/in/abdibrokhim"
+            />
+          </div>
 
         <div className='flex flex-col gap-4 items-center justify-center p-6 rounded-lg flex-1 shadow-[0_0_20px_rgba(255,255,255,0.25)]'>
             <div className="w-full h-full rounded-lg overflow-hidden">
@@ -327,7 +299,7 @@ export default function Home() {
               {podcast.id === 3 ? (
                 <p className='absolute top-6 left-6 text-[var(--text-b)] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] opacity-80 text-xs rounded-full'>newest</p>
               ) : null}
-              <div className='flex flex-col gap-4 items-center justify-center'>
+              <div className='flex flex-col h-full gap-4 items-center justify-center'>
                 <div className="w-full h-full rounded-lg overflow-hidden">
                   <Image 
                     src={podcast.imgPath}
