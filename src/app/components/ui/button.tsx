@@ -11,7 +11,7 @@ const buttonVariants = cva(
       variant: {
         default: "bg-[#e5e5e5] text-black hover:bg-[#e5e5e5]/90 text-xs sm:text-sm",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          "bg-[hsl(var(--teal-100))] text-[hsl(var(--teal-700))] hover:bg-[hsl(var(--teal-100))]/90 text-xs sm:text-sm",
         outline:
           "border border-input bg-background hover:border-[hsl(var(--teal-700))] hover:text-[hsl(var(--teal-700))] text-xs animate-pulse",
         secondary:

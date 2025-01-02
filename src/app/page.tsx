@@ -76,7 +76,7 @@ export default function Home() {
 
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">&quot;i make things, therefore i am.&quot;</h1>
         <p className='text-xs text-[var(--text-b)] text-center'>Looking for my sis TechGirls25 application? <a className='hover:text-[hsl(var(--teal-700))] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] rounded-full' href='/sis/techgirls25' target='_blank'>It&apos;s here</a></p>
-        <div className="flex flex-col p-12 justify-center items-center shadow-[0_0_20px_rgba(255,255,255,0.25)]">
+        <div className="flex flex-col p-12 justify-center items-center rounded-lg shadow-[0_0_20px_rgba(255,255,255,0.25)]">
           <p className='animate-pulse text-2xl'>loading...</p>
           <p className='text-xs mt-2'>meanwhile feel free to check out <a className='ml-1 hover:text-[hsl(var(--teal-700))] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] rounded-full' href='https://github.com/abdibrokhim/wrapped24' target='_blank'>MY 2024 WRAPPED</a></p>
         </div>
@@ -104,12 +104,14 @@ export default function Home() {
               <Button 
                 onClick={() => window.open(project.pagePath, '_blank')} 
                 variant="default"
+                className='w-full'
               >
                 Deep Dive
               </Button>
               <Button 
                 onClick={() => handleShare(project.name)} 
                 variant="default"
+                className='w-full'
               >
                 Share on Twitter
               </Button>

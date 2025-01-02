@@ -1,3 +1,3 @@
-i'm cookin' cool shit using ai
+just make things
 
-try it now [imcook.in](https://imcook.in)
+[imcook.in](https://imcook.in)

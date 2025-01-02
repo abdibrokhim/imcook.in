@@ -23,7 +23,7 @@ export function SocialCard({ icon, title, content, buttonText, buttonLink }: Soc
       <Button 
         onClick={() => window.open(buttonLink, '_blank')} 
         variant="default"
-        className='w-fit'
+        className='w-full'
       >
         {buttonText}
       </Button>

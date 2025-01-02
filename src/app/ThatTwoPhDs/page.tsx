@@ -1,13 +1,14 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Analytics } from "@vercel/analytics/react"
 import Footer from '../components/Footer';
 import { Button } from "../components/ui/button"
 import { SocialCard } from '../components/SocialCard';
 
 export default function Home() {
+    const [expandedPodcast, setExpandedPodcast] = useState<number | null>(null);
 
     const socialCardData = [
         {
@@ -113,6 +114,41 @@ export default function Home() {
         }
       ]
 
+      const allPodcasts = [
+        {
+            id: 0,
+            name: 'He Failed OIST? - That Two PhDs',
+            imgPath: '/podcasts/s2/ep1cover.png',
+            info: "This document is an application for a research internship at the Okinawa Institute of Science and Technology (OIST). The applicant, Ibrohim Abdivokhidov, highlights his experience in applying machine learning to personalized healthcare, expressing strong interest in working with Professor Yamada Makoto on generating 3D medical images. His goals include co-authoring research papers, furthering his AI expertise, and potentially launching a new startup. The internship aligns with his broader aspiration to improve healthcare access and outcomes through data-driven decision-making. He believes OIST provides the ideal environment to advance these objectives.",
+            deepDive: 'https://youtu.be/gme4g95WT8g?si=7-kPYyxyKKYI8sHs',
+            stream: 'https://open.spotify.com/show/04oywTRKpElYxaGQnOyICP?si=WBLclyYNTNG1J6vtF23MEQ'
+        },
+        {
+            id: 1,
+            name: 'DAAD Rejected After Week? - That Two PhDs',
+            imgPath: '/podcasts/s2/ep2cover.png',
+            info: "This document is a letter of motivation for a Master's program in Computational Neuroscience at Technische Universität Berlin. The applicant, driven by a passion for bridging technology and human cognition, highlights their strong background in software engineering and ambitious goals: short-term work at Neuralink and long-term pursuit of a Ph.D. and university teaching career. Their motivation stems from a desire to address the lack of technological support for individuals with disabilities in their home country of Uzbekistan, using their expertise to improve the lives of those affected. The applicant showcases their research experience, including publications and projects utilizing cutting-edge techniques like CNNs and NLP, and emphasizes their commitment to research-oriented learning, specifically mentioning the appeal of the Berlin program and their interest in collaborating with Professor Obermayer's group. Finally, the applicant demonstrates their leadership and teaching experience through mentoring and open-source contributions, demonstrating a strong commitment to knowledge sharing.",
+            deepDive: 'https://youtu.be/aY_FOwkBc40?si=Am9ule7ih7yb5JjH',
+            stream: 'https://open.spotify.com/show/04oywTRKpElYxaGQnOyICP?si=WBLclyYNTNG1J6vtF23MEQ'
+        },
+        {
+            id: 2,
+            name: 'HPAIR 2025 was pretty unfair... - That Two PhDs',
+            imgPath: '/podcasts/s2/ep3cover.png',
+            info: "This document presents excerpts from a Harvard Project for Asian and International Relations (HPAIR) conference application, showcasing the applicant's leadership and teamwork skills through various experiences. The applicant highlights their role leading a team of female AI developers who won a hackathon despite facing initial challenges in idea selection and project development. Another example details teamwork on a different project where they pivoted to a new concept due to feasibility constraints, demonstrating adaptability. A key theme throughout is their passion for education and mentoring, evident in their involvement with numerous organizations and open-source projects, further emphasized by their personal growth from overcoming past failures in hackathons. The purpose is to persuasively demonstrate their qualifications for the HPAIR conference, showcasing their leadership capabilities and commitment to innovation.",
+            deepDive: 'https://youtu.be/VhhNfRF4yYI?si=oBb-DZq9pQ2UmBYW',
+            stream: 'https://open.spotify.com/show/04oywTRKpElYxaGQnOyICP?si=WBLclyYNTNG1J6vtF23MEQ'
+        },
+        {
+            id: 3,
+            name: 'Young Leader From Uzbekistan - That Two PhDs',
+            imgPath: '/podcasts/s2/ep4cover.png',
+            info: "This document is an application showcasing the accomplishments and aspirations of a young leader from Uzbekistan. The applicant highlights their passion for computational neuroscience and its application to improving lives, particularly for individuals with disabilities in their home country. Their work combines software engineering skills with research in AI and neuroscience, culminating in projects like an improved brain MRI diagnostic model and contributions to open-source AI initiatives. The applicant demonstrates leadership through founding and leading Open Community, and through mentoring thousands of young people. Ultimately, the document aims to demonstrate the applicant's suitability for a young leaders fellowship by highlighting their achievements, ambitious goals, and commitment to using their expertise to benefit their community.",
+            deepDive: 'https://www.youtube.com/@ThatTwoPhDs/videos',
+            stream: 'https://open.spotify.com/show/04oywTRKpElYxaGQnOyICP?si=WBLclyYNTNG1J6vtF23MEQ'
+        },
+      ]
+
       const handleDownload = useCallback(async (downloadUrl: string, downloadName: string) => {
         try {
           const a = document.createElement('a')
@@ -170,8 +206,8 @@ export default function Home() {
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">Learn 100x Faster</h1>
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-12'>
             {applicationsData.map((appl) => (
-                <div key={appl.id} className='flex flex-col gap-4 p-4 rounded-lg shadow-[0_0_20px_rgba(255,255,255,0.25)]'>
-                <div className='flex flex-col gap-4 items-center justify-center'>
+              <div key={appl.id} className='flex flex-col gap-4 p-4 rounded-lg shadow-[0_0_20px_rgba(255,255,255,0.25)]'>
+                <div className='flex flex-col h-full gap-4 items-center justify-center'>
                     <div className="w-full h-full rounded-lg overflow-hidden">
                     <Image 
                         src={appl.imgPath}
@@ -201,9 +237,50 @@ export default function Home() {
                     Get Access
                     </Button>
                 </div>
-                </div>
+              </div>
             ))}
+            {/* sponsored card */}
+            <div className='relative flex flex-col gap-4 p-4 rounded-lg shadow-[0_0_20px_rgba(45,212,191,0.25)]'>
+              <p className='absolute top-6 left-6 text-[var(--text-b)] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] opacity-80 text-xs rounded-full'>sponsored</p>
+              <div className='flex flex-col gap-4 items-start justify-center'>
+                  <div className="w-full h-full rounded-lg overflow-hidden">
+                    <Image 
+                        src="/applications/makethings-cover.png"
+                        alt="Learn Build Stuff"
+                        width={200}
+                        height={200}
+                        className='w-full h-full object-cover'
+                    />
+                  </div>
+                  <div className='text-start'>
+                    <h2 className="text-xl font-bold text-[hsl(var(--teal-700))] bg-[hsl(var(--teal-100))] inline p-1">Learn How To Build Real World Stuff</h2>
+                    <div className='flex flex-col gap-2 mt-2'>
+                      <p className='text-[var(--text-b)]'>What you will learn?</p>
+                      <p className='text-[var(--text-b)]'>Get hands-on with real AI projects - from transforming modern websites with a retro 90s vibe to building an AI coding interviewer, launching your own AI startup, chatting with documents, generating AI stickers, and even creating Chrome extensions. You&apos;ll dive into top tech stacks (Next.js, React, Tailwind CSS, AI/ML APIs, OpenAI, and other tons of potential tools), learn prompt engineering, deploy like a pro on Vercel, and level up your dev game with rapid prototyping skills.</p>
+                      <p className='text-[var(--text-b)]'>Ibrohim Abdivokhidov - &quot;1st AI/ML API Regional Ambassador in Central Asia | Founder & CEO at Open Community (170+ 🧑‍💻) | 60+ Hackathons | Open Source contr. at Anarchy Labs (500+ ⭐️), Langflow (35K+ ⭐️) | Mentor (200K+ 🧑‍🎓) | Author (5+ 📚)&quot;</p>
+                      <p className='text-[var(--text-b)]'>- let&apos;s make things!</p>
+                    </div>
+                  </div>
+              </div>
+              <div className='flex space-x-4 items-center justify-center'>
+                  <Button 
+                      onClick={() => window.open("/JustMakeThings", '_blank')} 
+                      variant="destructive"
+                      className='w-full'
+                  >
+                  Deep Dive
+                  </Button>
+                  <Button 
+                      onClick={() => window.open("/JustMakeThings", '_blank')}
+                      variant="destructive"
+                      className='w-full'
+                  >
+                  Get Access
+                  </Button>
+              </div>
+            </div>
         </div>
+
         <div className='flex flex-col gap-4 items-center justify-center p-6 rounded-lg flex-1 shadow-[0_0_20px_rgba(255,255,255,0.25)]'>
             <div className="w-full h-full rounded-lg overflow-hidden">
             <Image 
@@ -241,6 +318,63 @@ export default function Home() {
                     Deep Dive (with Analysis)
                 </Button>
             </div>
+        </div>
+
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">Explore All Podcasts</h1>
+        <div className='grid grid-cols-1 sm:grid-cols-2 gap-12'>
+          {[...allPodcasts].reverse().map((podcast) => (
+            <div key={podcast.id} className={`relative flex flex-col gap-4 p-4 rounded-lg ${podcast.id === 3 ? 'shadow-[0_0_20px_rgba(45,212,191,0.25)]' : 'shadow-[0_0_20px_rgba(255,255,255,0.25)]'}`}>
+              {podcast.id === 3 ? (
+                <p className='absolute top-6 left-6 text-[var(--text-b)] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] opacity-80 text-xs rounded-full'>newest</p>
+              ) : null}
+              <div className='flex flex-col gap-4 items-center justify-center'>
+                <div className="w-full h-full rounded-lg overflow-hidden">
+                  <Image 
+                    src={podcast.imgPath}
+                    alt={podcast.name}
+                    width={200}
+                    height={200}
+                    className='w-full h-full object-cover'
+                  />
+                </div>
+                <div className='text-start'>
+                  <h2 className="text-xl font-bold text-[var(--button-bg)]">{podcast.name}</h2>
+                  <div className='text-[var(--text-b)]'>
+                    {podcast.info.slice(0, 150)}
+                    {podcast.info.length > 150 && (
+                      <div className="flex flex-col gap-2">
+                        {expandedPodcast === podcast.id && (
+                          <span>{podcast.info.slice(150)}</span>
+                        )}
+                        <button 
+                          onClick={() => setExpandedPodcast(expandedPodcast === podcast.id ? null : podcast.id)}
+                          className="text-start text-xs text-[var(--text-c)] hover:underline"
+                        >
+                          {expandedPodcast === podcast.id ? 'read less' : 'read more'}
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className='flex space-x-4 items-center justify-center'>
+                <Button 
+                  onClick={() => window.open(podcast.deepDive, '_blank')} 
+                  variant={podcast.id === 3 ? 'destructive' : 'default'}
+                  className='w-full'
+                >
+                  Watch on YouTube
+                </Button>
+                <Button 
+                  onClick={() => window.open(podcast.stream, '_blank')}
+                  variant={podcast.id === 3 ? 'destructive' : 'default'}
+                  className='w-full'
+                >
+                  Listen on Spotify
+                </Button>
+              </div>
+            </div>
+          ))}
         </div>
 
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">Cutesy Cards</h1>
