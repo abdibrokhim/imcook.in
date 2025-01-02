@@ -1,12 +1,14 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Analytics } from "@vercel/analytics/react"
 import Footer from './components/Footer';
 import { Button } from "./components/ui/button"
+import { CryptoCard } from './components/CryptoCard';
 
 export default function Home() {
+
   const projects = [
     {
       id: 0,
@@ -68,6 +70,30 @@ export default function Home() {
     }
   }, [])
 
+  const cryptoAddress = [
+    {
+      id: 0,
+      title: 'BITCOIN',
+      icon: '/crypto/Bitcoin.svg',
+      address: 'bc1qpylxaqwapk0tgdmpnnljj545z4lk2z9q5us6p6',
+      buttonText: "Copy Address"
+    },
+    {
+      id: 1,
+      title: 'ETHEREUM',
+      icon: '/crypto/Ethereum_logo.svg',
+      address: '0xb4a8e71d82e8Bf84a02C7770585F9cD8b267aDB9',
+      buttonText: "Copy Address"
+    },
+    {
+      id: 2,
+      title: 'SOLANA',
+      icon: '/crypto/solanaLogoMark.svg',
+      address: '4MpPHapcdb5MwRy57juUQ2wUt1EJo8BYqXsYKwSfCvz1',
+      buttonText: "Copy Address"
+    }
+  ]
+
   return (
     <div className="min-h-screen p-4 sm:p-8 md:p-12 lg:p-20">
       <Analytics />
@@ -81,7 +107,7 @@ export default function Home() {
           <p className='text-xs mt-2'>meanwhile feel free to check out <a className='ml-1 hover:text-[hsl(var(--teal-700))] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] rounded-full' href='https://github.com/abdibrokhim/wrapped24' target='_blank'>MY 2024 WRAPPED</a></p>
         </div>
 
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">My Cookies</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">My Big Projects</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
           {projects.map((project) => (
             <div key={project.id} className='flex flex-col gap-4 p-4 rounded-lg shadow-[0_0_20px_rgba(255,255,255,0.25)]'>
@@ -119,6 +145,21 @@ export default function Home() {
           </div>
           ))}
         </div>
+
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">Donate & Support</h1>
+        <p className='text-sm sm:text-md text-[var(--text-b)] text-center'>All my projects are open-source and free to use. If you like my work, consider supporting me by donating some crypto.</p>
+        <div className='grid grid-cols-1 gap-8 max-w-xl items-center justify-center mx-auto'>
+          {cryptoAddress.map((card) => (
+            <CryptoCard
+              key={card.id}
+              title={card.title}
+              address={card.address}
+              buttonText={card.buttonText}
+            />
+          ))}
+        </div>
+        
+        {/* Cutesy Cards */}
 
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">Cutesy Cards</h1>
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-12'>
