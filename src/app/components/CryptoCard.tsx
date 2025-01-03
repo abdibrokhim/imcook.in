@@ -6,9 +6,10 @@ interface CryptoCardProps {
   title: string
   address: string
   buttonText: string
+  green: boolean
 }
 
-export function CryptoCard({ title, address }: CryptoCardProps) {
+export function CryptoCard({ title, address, green }: CryptoCardProps) {
     const [notification, setNotification] = React.useState<{ message: string; type: 'error' | 'success' | 'info' } | null>(null);  // notification message
 
   return (
@@ -20,9 +21,9 @@ export function CryptoCard({ title, address }: CryptoCardProps) {
                     onClose={() => setNotification(null)}
                 />
             )}
-      <div className='p-4 flex flex-row items-center justify-between rounded-lg shadow-[0_0_20px_rgba(255,255,255,0.25)]'>
+      <div className={`p-4 flex flex-row items-center justify-between rounded-lg ${green ? 'shadow-[0_0_20px_rgba(45,212,191,0.25)]' : 'shadow-[0_0_20px_rgba(255,255,255,0.25)]'}`}>
         <div className='flex flex-row gap-4 items-center overflow-hidden'>
-          <h2 className="text-sm md:text-lg font-bold text-[var(--button-bg)] whitespace-nowrap bg-[#e5e5e5] text-black inline-flex items-center justify-center rounded-md font-medium px-2 py-1 w-28 h-10 px-4 py-2">{title}:</h2>
+          <h2 className="text-sm md:text-lg font-bold text-[var(--button-bg)] whitespace-nowrap bg-[#e5e5e5] text-black inline-flex items-start justify-start rounded-md font-medium px-2 py-1 w-28 h-10 px-4 py-2">{title}:</h2>
           <div className='text-[var(--text-b)] text-xs md:text-sm truncate animate-pulse'>{address}</div>
         </div>
         <Button 

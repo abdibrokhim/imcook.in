@@ -105,15 +105,10 @@ export default function Home() {
         id: 1,
         name: 'Dexscreener',
         link: 'https://dexscreener.com/solana/9qc7vflmuub1nfjovwp9sryjruct56vnpuko8nlw7jbt'
-      },
-      {
-        id: 2,
-        name: 'Geckoterminal',
-        link: 'https://www.geckoterminal.com/solana/pools/9qC7VfLMUUb1NFJovWP9SryJrUcT56vnpuKo8NLw7JBT'
-      },
+      }
   ]
 
-  const ca = ''
+  const ca = 'Fvk6wGQuQQkjHMczaGqeMoe5M4RXKAnMoh6e2G7Mpump'
 
   return (
     <div className="min-h-screen p-4 sm:p-8 md:p-12 lg:p-20">
@@ -131,6 +126,12 @@ export default function Home() {
 {/* crypto stuff */}
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[var(--text-b)]">Introducing: <span className='text-[hsl(var(--teal-700))] bg-[hsl(var(--teal-100))] inline p-1'>{`The Real Open Community ($TROC)`}</span></h1>
         <div className='grid grid-cols-1 gap-8 max-w-2xl items-center justify-center mx-auto'>
+          <CryptoCard 
+            title='CA'
+            address={ca}
+            buttonText='Copy Address'
+            green={true}
+          />
           {troc.map((card) => (
             <CoinCard 
             key={card.id}
@@ -191,6 +192,7 @@ export default function Home() {
               title={card.title}
               address={card.address}
               buttonText={card.buttonText}
+              green={false}
             />
           ))}
         </div>
