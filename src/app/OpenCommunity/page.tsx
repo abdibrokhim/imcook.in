@@ -71,33 +71,33 @@ export default function Home() {
       linkedin: 'https://linkedin.com/in/abdibrokhim',
       ps: 'i make things, therefore i am.'
     },
-    {
-      id: 1,
-      name: 'Wei B Tan',
-      role: 'COO',
-      avatar: '/lteam/wei.jpg',
-      twitter: 'https://x.com/weiexplore',
-      linkedin: 'https://www.linkedin.com/in/weibtan01/',
-      ps: 'loading...'
-    },
-    {
-      id: 2,
-      name: 'Asadbek Bekturdiyev',
-      role: 'UI/UX Designer',
-      avatar: '/lteam/asadbek.jpg',
-      twitter: 'https://x.com/Asadbekmake',
-      linkedin: 'https://www.linkedin.com/in/asadbek-bekturdiyev-5b4a5a266/',
-      ps: 'loading...'
-    },
-    {
-      id: 3,
-      name: 'Orif Rakhimjonov',
-      role: 'CMO',
-      avatar: '/lteam/orif.jpg',
-      twitter: 'https://twitter.com/abdibrokhim',
-      linkedin: 'https://www.linkedin.com/in/orif-rakhimjonov-49068a246/',
-      ps: 'loading...'
-    }
+    // {
+    //   id: 1,
+    //   name: 'Wei B Tan',
+    //   role: 'COO',
+    //   avatar: '/lteam/wei.jpg',
+    //   twitter: 'https://x.com/weiexplore',
+    //   linkedin: 'https://www.linkedin.com/in/weibtan01/',
+    //   ps: 'loading...'
+    // },
+    // {
+    //   id: 2,
+    //   name: 'Asadbek Bekturdiyev',
+    //   role: 'UI/UX Designer',
+    //   avatar: '/lteam/asadbek.jpg',
+    //   twitter: 'https://x.com/Asadbekmake',
+    //   linkedin: 'https://www.linkedin.com/in/asadbek-bekturdiyev-5b4a5a266/',
+    //   ps: 'loading...'
+    // },
+    // {
+    //   id: 3,
+    //   name: 'Orif Rakhimjonov',
+    //   role: 'CMO',
+    //   avatar: '/lteam/orif.jpg',
+    //   twitter: 'https://twitter.com/abdibrokhim',
+    //   linkedin: 'https://www.linkedin.com/in/orif-rakhimjonov-49068a246/',
+    //   ps: 'loading...'
+    // }
   ]
 
   const cutesyCards = [
