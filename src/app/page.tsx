@@ -116,34 +116,14 @@ export default function Home() {
       <main className="max-w-4xl mx-auto space-y-12">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center">Ibrohim Abdivokhidov</h1>
 
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">&quot;i make things, therefore i am.&quot;</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center"><span className='text-[hsl(var(--teal-700))] bg-[hsl(var(--teal-100))] inline p-1'>&quot;facio res, ergo sum.&quot;</span></h1>
         {/* <p className='text-xs text-[var(--text-b)] text-center'>Looking for my sis TechGirls25 application? <a className='hover:text-[hsl(var(--teal-700))] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] rounded-full' href='/sis/techgirls25' target='_blank'>It&apos;s here</a></p> */}
         {/* <div className="flex flex-col p-12 justify-center items-center rounded-lg shadow-[0_0_20px_rgba(255,255,255,0.25)]">
           <p className='animate-pulse text-2xl'>loading...</p>
           <p className='text-xs mt-2'>meanwhile feel free to check out <a className='ml-1 hover:text-[hsl(var(--teal-700))] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] rounded-full' href='https://github.com/abdibrokhim/wrapped24' target='_blank'>MY 2024 WRAPPED</a></p>
         </div> */}
 
-{/* crypto stuff */}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[var(--text-b)]">Introducing: <span className='text-[hsl(var(--teal-700))] bg-[hsl(var(--teal-100))] inline p-1'>{`The Real Open Community ($TROC)`}</span></h1>
-        <div className='grid grid-cols-1 gap-8 max-w-2xl items-center justify-center mx-auto'>
-          <CryptoCard 
-            title='CA'
-            address={ca}
-            buttonText='Copy Address'
-            green={true}
-          />
-          {troc.map((card) => (
-            <CoinCard 
-            key={card.id}
-            title={card.name}
-            address={card.link}
-            buttonText={card.link}
-            buttonLink={card.link}
-            />
-          ))}
-        </div>
-        <p className='max-w-xl items-center justify-center mx-auto text-[var(--text-c)] text-xs'>Disclaimer: This is the only legit coin I have ever created, everything before this was not me. Others used my image, name, and community. Yes, previous coins were rugged, but I had nothing to do with them. This one is mine. I don&apos;t have large supply of it and it&apos;s community driven. Please do your own research and be careful. This is not a financial advice.</p>
-
+        {/* projects */}
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">My Big Projects</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
           {projects.map((project) => (
@@ -245,6 +225,31 @@ export default function Home() {
             <span className='mr-1'>generate your own card</span>
           </Button>
         </div>
+
+        {/* archived */}
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center">Archived</h1>
+        {/* crypto stuff */}
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[var(--text-b)]">Introducing: <span className='text-[hsl(var(--teal-700))] bg-[hsl(var(--teal-100))] inline p-1'>{`The Real Open Community ($TROC)`}</span></h1>
+        <div className='grid grid-cols-1 gap-8 max-w-2xl items-center justify-center mx-auto'>
+          <CryptoCard 
+            title='CA'
+            address={ca}
+            buttonText='Copy Address'
+            green={true}
+          />
+          {troc.map((card) => (
+            <CoinCard 
+            key={card.id}
+            title={card.name}
+            address={card.link}
+            buttonText={card.link}
+            buttonLink={card.link}
+            />
+          ))}
+        </div>
+        <p className='max-w-xl items-center justify-center mx-auto text-[var(--text-c)] text-xs'>Disclaimer: This is the only legit coin I have ever created, everything before this was not me. Others used my image, name, and community. Yes, previous coins were rugged, but I had nothing to do with them. This one is mine. I don&apos;t have large supply of it and it&apos;s community driven. Please do your own research and be careful. This is not a financial advice.</p>
+
+
         <p className='text-xs text-[var(--text-b)] text-center'>Did you like this website design? <a className='hover:text-[hsl(var(--teal-700))] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] rounded-full' href='https://github.com/abdibrokhim/imcook.in' target='_blank'>Fork on Github</a></p>
       </main>
       <Footer />
