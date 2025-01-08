@@ -14,12 +14,12 @@ export function CoinCard({ title, address, buttonLink }: CoinCardProps) {
     <div className='flex flex-col gap-4'>
       <div className='p-4 flex flex-row items-center justify-between rounded-lg shadow-[0_0_20px_rgba(45,212,191,0.25)]'>
         <div className='flex flex-row gap-4 items-center overflow-hidden'>
-          <h2 className="text-sm md:text-lg font-bold text-[var(--button-bg)] whitespace-nowrap bg-[#e5e5e5] text-black inline-flex items-start justify-start rounded-md font-medium px-2 py-1 w-32 h-10 px-4 py-2">{title}:</h2>
+          <h2 className="text-sm md:text-lg font-bold whitespace-nowrap bg-[hsl(var(--teal-100))] text-[hsl(var(--teal-700))] inline-flex items-center justify-centerstart rounded-md font-medium px-2 py-1 h-10 px-4 py-2">{title}:</h2>
           <div className='text-[var(--text-b)] text-xs md:text-sm truncate animate-pulse'>{address}</div>
         </div>
         <Button 
           onClick={() => window.open(buttonLink, '_blank')} 
-          variant="default"
+          variant="destructive"
           className='shrink-0'
         >
             <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">

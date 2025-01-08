@@ -23,7 +23,7 @@ export function CryptoCard({ title, address, green }: CryptoCardProps) {
             )}
       <div className={`p-4 flex flex-row items-center justify-between rounded-lg ${green ? 'shadow-[0_0_20px_rgba(45,212,191,0.25)]' : 'shadow-[0_0_20px_rgba(255,255,255,0.25)]'}`}>
         <div className='flex flex-row gap-4 items-center overflow-hidden'>
-          <h2 className="text-sm md:text-lg font-bold text-[var(--button-bg)] whitespace-nowrap bg-[#e5e5e5] text-black inline-flex items-start justify-start rounded-md font-medium px-2 py-1 w-28 h-10 px-4 py-2">{title}:</h2>
+          <h2 className="text-sm md:text-lg font-bold whitespace-nowrap bg-[hsl(var(--teal-100))] text-[hsl(var(--teal-700))] inline-flex items-center justify-centerstart rounded-md font-medium px-2 py-1 h-10 px-4 py-2">{title}:</h2>
           <div className='text-[var(--text-b)] text-xs md:text-sm truncate animate-pulse'>{address}</div>
         </div>
         <Button 
@@ -32,7 +32,7 @@ export function CryptoCard({ title, address, green }: CryptoCardProps) {
                 setNotification({ message: 'Copied to clipboard', type: 'success'})
             })
           } 
-          variant="default"
+          variant="destructive"
           className='shrink-0'
         >
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">

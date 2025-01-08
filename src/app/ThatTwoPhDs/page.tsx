@@ -7,6 +7,8 @@ import Footer from '../components/Footer';
 import { Button } from "../components/ui/button"
 import { SocialCard } from '../components/SocialCard';
 import { SponsoredCard } from '../components/SponsoredCard';
+import { CryptoCard } from '../components/CryptoCard';
+import { CoinCard } from '../components/CoinCard';
 
 export default function Home() {
     const [expandedPodcast, setExpandedPodcast] = useState<number | null>(null);
@@ -26,7 +28,7 @@ export default function Home() {
           title: 'Discord',
           content: 'a new kind of podcast',
           buttonText: 'Join the Community',
-          buttonLink: 'https://discord.gg/nVtmDUN2sR'
+          buttonLink: 'https://discord.gg/WdgS8jU98w'
         },
         {
           id: 2,
@@ -161,11 +163,49 @@ export default function Home() {
         }
       }, [])
 
+
+  const coin = [
+    {
+      id: 0,
+      name: 'Pumpfun',
+      link: 'https://pump.fun/coin/'
+    },
+    {
+      id: 1,
+      name: 'Dexscreener',
+      link: 'https://dexscreener.com/solana/'
+    }
+]
+
+      const ca = ''
+
   return (
     <div className="min-h-screen p-4 sm:p-8 md:p-12 lg:p-20">
       <Analytics />
       <main className="max-w-4xl mx-auto space-y-8">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center">That Two PhDs</h1>
+
+        {/* crypto stuff */}
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[var(--text-b)]">Introducing: <span className='text-[hsl(var(--teal-700))] bg-[hsl(var(--teal-100))] inline p-1'>$PhDs</span> a community driven coin</h1>
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-center text-[var(--text-c)]">support our educational project!</h1>
+        <div className='grid grid-cols-1 gap-8 max-w-2xl items-center justify-center mx-auto'>
+          <CryptoCard 
+            title='CA'
+            address={ca}
+            buttonText='Copy Address'
+            green={true}
+          />
+          {coin.map((card) => (
+            <CoinCard 
+            key={card.id}
+            title={card.name}
+            address={card.link}
+            buttonText={card.link}
+            buttonLink={card.link}
+            />
+          ))}
+        </div>
+        <p className='max-w-xl items-center justify-center mx-auto text-[var(--text-c)] text-xs'>Disclaimer: This is the only legit coin I have ever created for That Two PhDs. I don&apos;t have large supply of it and it&apos;s community driven. Please do your own research and be careful. This is not a financial advice.</p>
 
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">Latest Podcast</h1>
         <div className='p-6 rounded-lg flex-1 shadow-[0_0_20px_rgba(255,255,255,0.25)]'>

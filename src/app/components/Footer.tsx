@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
             </a>
         </div>
         <div className="">
-          <p className="text-sm text-center text-[var(--text-c)]">
+          <p className="text-xs text-center text-[var(--text-c)]">
             © 2024 Ibrohim Abdivokhidov. All rights reserved.
           </p>
         </div>
