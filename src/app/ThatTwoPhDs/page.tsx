@@ -168,16 +168,16 @@ export default function Home() {
     {
       id: 0,
       name: 'Pumpfun',
-      link: 'https://pump.fun/coin/'
+      link: 'https://pump.fun/coin/DMiyefLwHtzzC1FCu7JPkQZAgg5Qfk9yJ2q39Ekbpump'
     },
     {
       id: 1,
       name: 'Dexscreener',
-      link: 'https://dexscreener.com/solana/'
+      link: 'soon'
     }
 ]
 
-      const ca = ''
+      const ca = 'DMiyefLwHtzzC1FCu7JPkQZAgg5Qfk9yJ2q39Ekbpump'
 
   return (
     <div className="min-h-screen p-4 sm:p-8 md:p-12 lg:p-20">
