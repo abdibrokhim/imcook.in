@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
           <a
               aria-label="my discord community"
               className="flex items-center hover:underline hover:underline-offset-4 hover:bg-[hsl(var(--teal-100))] hover:bg-opacity-10 rounded-full p-3 text-[#787B89] hover:text-[hsl(var(--teal-700))]"
-              href="https://discord.gg/nVtmDUN2sR"
+              href="https://discord.gg/nUdcd9p8Ae"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
             <a
               aria-label="my youtube channel"
               className="flex items-center hover:underline hover:underline-offset-4 hover:bg-[hsl(var(--teal-100))] hover:bg-opacity-10 rounded-full p-3 text-[#787B89] hover:text-[hsl(var(--teal-700))]"
-              href="https://www.youtube.com/@iJustMakeThings/"
+              href="https://www.youtube.com/@yapsdotgg"
               target="_blank"
               rel="noopener noreferrer"
             >

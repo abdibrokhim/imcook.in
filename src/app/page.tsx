@@ -2,129 +2,41 @@
 
 import Image from 'next/image';
 import React, { useState, useCallback } from 'react';
+import { X, ArrowRightIcon, CopyIcon, ArrowDown, LockKeyholeIcon, LockKeyholeOpen, CheckCheckIcon, LucideStars, Share, GlobeIcon, ExternalLinkIcon, DownloadIcon } from "lucide-react"
 import { Analytics } from "@vercel/analytics/react"
 import Footer from './components/Footer';
 import { Button } from "./components/ui/button"
 import { CryptoCard } from './components/CryptoCard';
 import { CoinCard } from './components/CoinCard';
+import { projects, cryptoAddress, cutesyCards, troc, ca } from './utils/jsonData';
+import { CardsMinima } from './components/CardsMinima';
 
 export default function Home() {
 
-  const projects = [
-    {
-      id: 0,
-      name: 'That Two PhDs',
-      info: 'a new kind of podcast',
-      pagePath: '/ThatTwoPhDs',
-      coverPath: '/assets/thattwophds.png',
-    },
-    {
-      id: 1,
-      name: 'just make things',
-      info: 'you can just make things',
-      pagePath: '/JustMakeThings',
-      coverPath: '/assets/justmakethings.png',
-    },
-    {
-      id: 2,
-      name: 'Open Community',
-      info: 'making ai uncool again',
-      pagePath: '/OpenCommunity',
-      coverPath: '/assets/opencommunity.png',
-    }
-  ]
-
-  const cutesyCards = [
-    {
-      id: 0,
-      name: 'i make things, therefore i am.',
-      imgPath: '/cards/i-make-things-therefore-i-am.png',
-    },
-    {
-      id: 1,
-      name: 'MY 2024 WRAPPED',
-      imgPath: '/cards/my2024wrapped.png',
-    },
-  ]
-
   const handleShare = useCallback(async (projectName: string) => {
     try {
-      const text = `this project is sooooo crazy ${projectName}!\nhere: imcook.in\n#justmakethings`
-      const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
+      const text = `imcook.in | yaps.gg | notl.ink | notgrep.app | justmakethings.cc`
+      const twitterUrl = `https://x.com/intent/post?text=${encodeURIComponent(text)}`
       window.open(twitterUrl, '_blank')
     } catch (error) {
       console.error('An error occurred:', error)
-      const fallbackText = '#justmakethings'
-      const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(fallbackText)}`
+      const fallbackText = 'imcook.in | yaps.gg | notl.ink | notgrep.app | justmakethings.cc'
+      const twitterUrl = `https://x.com/intent/post?text=${encodeURIComponent(fallbackText)}`
       window.open(twitterUrl, '_blank')
     }
-  }, [])
-
-  const handleDownload = useCallback(async (downloadUrl: string, downloadName: string) => {
-    try {
-      const a = document.createElement('a')
-      a.href = downloadUrl
-      a.download = downloadName
-      a.click()
-    } catch (error) {
-      console.error('An error occurred:', error)
-    }
-  }, [])
-
-  const cryptoAddress = [
-    {
-      id: 0,
-      title: 'BITCOIN',
-      icon: '/crypto/Bitcoin.svg',
-      address: 'bc1qpylxaqwapk0tgdmpnnljj545z4lk2z9q5us6p6',
-      buttonText: "Copy Address"
-    },
-    {
-      id: 1,
-      title: 'ETHEREUM',
-      icon: '/crypto/Ethereum_logo.svg',
-      address: '0xb4a8e71d82e8Bf84a02C7770585F9cD8b267aDB9',
-      buttonText: "Copy Address"
-    },
-    {
-      id: 2,
-      title: 'SOLANA',
-      icon: '/crypto/solanaLogoMark.svg',
-      address: '4MpPHapcdb5MwRy57juUQ2wUt1EJo8BYqXsYKwSfCvz1',
-      buttonText: "Copy Address"
-    }
-  ]
-
-  const troc = [
-      {
-        id: 0,
-        name: 'Pumpfun',
-        link: 'https://pump.fun/coin/Fvk6wGQuQQkjHMczaGqeMoe5M4RXKAnMoh6e2G7Mpump'
-      },
-      {
-        id: 1,
-        name: 'Dexscreener',
-        link: 'https://dexscreener.com/solana/9qc7vflmuub1nfjovwp9sryjruct56vnpuko8nlw7jbt'
-      }
-  ]
-
-  const ca = '9qC7VfLMUUb1NFJovWP9SryJrUcT56vnpuKo8NLw7JBT'
+  }, []);
 
   return (
     <div className="min-h-screen p-4 sm:p-8 md:p-12 lg:p-20">
       <Analytics />
       <main className="max-w-4xl mx-auto space-y-12">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center">Ibrohim Abdivokhidov</h1>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center">Welcome to Ibrohim Abdivokhidov&apos;s startup kitchen</h1>
 
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center"><span className='text-[hsl(var(--teal-700))] bg-[hsl(var(--teal-100))] inline p-1'>&quot;facio res, ergo sum.&quot;</span></h1>
-        {/* <p className='text-xs text-[var(--text-b)] text-center'>Looking for my sis TechGirls25 application? <a className='hover:text-[hsl(var(--teal-700))] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] rounded-full' href='/sis/techgirls25' target='_blank'>It&apos;s here</a></p> */}
-        {/* <div className="flex flex-col p-12 justify-center items-center rounded-lg shadow-[0_0_20px_rgba(255,255,255,0.25)]">
-          <p className='animate-pulse text-2xl'>loading...</p>
-          <p className='text-xs mt-2'>meanwhile feel free to check out <a className='ml-1 hover:text-[hsl(var(--teal-700))] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] rounded-full' href='https://github.com/abdibrokhim/wrapped24' target='_blank'>MY 2024 WRAPPED</a></p>
-        </div> */}
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center"><span className='text-[hsl(var(--teal-700))] bg-[hsl(var(--teal-100))] inline p-1'>i build things, all open source</span></h1>
+        <p className='text-xs text-[var(--text-b)] text-center'>Looking for my sis TechGirls25 application? <a className='hover:text-[hsl(var(--teal-700))] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] rounded-full' href='/sis/techgirls25' target='_blank'>It&apos;s here</a></p>
 
         {/* projects */}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">My Big Projects</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">My Projects</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
           {projects.map((project) => (
             <div key={project.id} className='flex flex-col gap-4 p-4 rounded-lg shadow-[0_0_20px_rgba(255,255,255,0.25)]'>
@@ -149,14 +61,14 @@ export default function Home() {
                 variant="default"
                 className='w-full'
               >
-                Deep Dive
+                <span className='text-sm'>Visit</span>
               </Button>
               <Button 
                 onClick={() => handleShare(project.name)} 
                 variant="default"
                 className='w-full'
               >
-                Share on Twitter
+                <span className='text-sm'>Share</span>
               </Button>
             </div>
           </div>
@@ -172,51 +84,14 @@ export default function Home() {
               title={card.title}
               address={card.address}
               buttonText={card.buttonText}
-              green={false}
+              green={true}
             />
           ))}
         </div>
         
-        {/* Cutesy Cards */}
+        {/* Cards Minima */}
+        <CardsMinima jsonData={cutesyCards} />
 
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">Cutesy Cards</h1>
-        <div className='grid grid-cols-1 sm:grid-cols-2 gap-12'>
-          {cutesyCards.map((card) => (
-            <div key={card.id} className='flex flex-col gap-4 p-4 rounded-lg shadow-[0_0_20px_rgba(255,255,255,0.25)]'>
-              <div className='flex flex-col gap-4 items-center justify-center'>
-                <div className="w-full h-full rounded-lg overflow-hidden">
-                  <Image 
-                    src={card.imgPath}
-                    alt={card.name}
-                    width={200}
-                    height={200}
-                    className='w-full h-full object-cover'
-                  />
-                </div>
-                <div className='text-center'>
-                  <h2 className="text-xl font-bold text-[var(--button-bg)]">{card.name}</h2>
-                </div>
-              </div>
-              <div className='flex space-x-4 items-center justify-center'>
-                <Button 
-                  onClick={() => window.open(card.imgPath, '_blank')} 
-                  variant="default"
-                  className='w-full'
-                >
-                  View Card
-                </Button>
-                <Button 
-                  onClick={() => handleDownload(card.imgPath, card.name)}
-                  variant="default"
-                  className='w-full'
-                >
-                  Download Card
-                </Button>
-              </div>
-            </div>
-          ))}
-        </div>
-        
         <div className='flex text-xs justify-center space-x-4'>
           <Button 
             onClick={()=>{
@@ -225,31 +100,6 @@ export default function Home() {
             <span className='mr-1'>generate your own card</span>
           </Button>
         </div>
-
-        {/* archived */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center">Archived</h1>
-        {/* crypto stuff */}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[var(--text-b)]">Introducing: <span className='text-[hsl(var(--teal-700))] bg-[hsl(var(--teal-100))] inline p-1'>{`The Real Open Community ($TROC)`}</span></h1>
-        <div className='grid grid-cols-1 gap-8 max-w-2xl items-center justify-center mx-auto'>
-          <CryptoCard 
-            title='CA'
-            address={ca}
-            buttonText='Copy Address'
-            green={true}
-          />
-          {troc.map((card) => (
-            <CoinCard 
-            key={card.id}
-            title={card.name}
-            address={card.link}
-            buttonText={card.link}
-            buttonLink={card.link}
-            />
-          ))}
-        </div>
-        <p className='max-w-xl items-center justify-center mx-auto text-[var(--text-c)] text-xs'>Disclaimer: This is the only legit coin I have ever created, everything before this was not me. Others used my image, name, and community. Yes, previous coins were rugged, but I had nothing to do with them. This one is mine. I don&apos;t have large supply of it and it&apos;s community driven. Please do your own research and be careful. This is not a financial advice.</p>
-
-
         <p className='text-xs text-[var(--text-b)] text-center'>Did you like this website design? <a className='hover:text-[hsl(var(--teal-700))] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] rounded-full' href='https://github.com/abdibrokhim/imcook.in' target='_blank'>Fork on Github</a></p>
       </main>
       <Footer />

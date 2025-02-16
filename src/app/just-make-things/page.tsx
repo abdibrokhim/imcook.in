@@ -58,7 +58,7 @@ export default function Home() {
       title: 'YouTube',
       content: 'You can just make things.',
       buttonText: 'Subscribe to MY Channel',
-      buttonLink: 'hhttps://www.youtube.com/@iJustMakeThings/videos'
+      buttonLink: 'hhttps://www.youtube.com/@yapsdotgg/videos'
     },
     {
       id: 2,
@@ -66,7 +66,7 @@ export default function Home() {
       title: 'Discord',
       content: 'I bet, my tutorials are the most interesting and... the best.',
       buttonText: 'Join MY Community',
-      buttonLink: 'https://discord.gg/nVtmDUN2sR'
+      buttonLink: 'https://discord.gg/nUdcd9p8Ae'
     },
     {
       id: 3,
@@ -137,7 +137,8 @@ export default function Home() {
           ))}
         </div>
 
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">Cutesy Cards</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">Cards Minima</h1>
+        <p className='text-sm sm:text-md text-[var(--text-b)] text-center'>Download them and share with your fam!!</p>
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-12'>
           {cutesyCards.map((card) => (
             <div key={card.id} className='flex flex-col gap-4 p-4 rounded-lg shadow-[0_0_20px_rgba(255,255,255,0.25)]'>
