@@ -34,7 +34,15 @@ export default function Home() {
 
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center"><span className='text-[hsl(var(--teal-700))] bg-[hsl(var(--teal-100))] inline p-1'>i build things, all open source</span></h1>
         <p className='text-xs text-[var(--text-b)] text-center'>Looking for my sis TechGirls25 application? <a className='hover:text-[hsl(var(--teal-700))] transition duration-300 px-2 py-1 bg-[hsl(var(--teal-100))] rounded-full' href='/sis/techgirls25' target='_blank'>It&apos;s here</a></p>
-
+        
+        <h1 className="text-xl font-bold text-center">I&apos;m excited to share that <a className='text-[hsl(var(--teal-700))] px-2 py-1 bg-[hsl(var(--teal-100))] rounded-full' href='https://notl.ink' target='_blank' rel="noreferrer">notl.ink</a> will be launching on ProductHunt<br></br>on February 18th, 2025 at 12:01 AM PST. (or 01:01 PM Uzbekistan time)</h1>
+        <iframe 
+          className='border-0 object-cover mx-auto items-center justify-center'
+          src="https://cards.producthunt.com/cards/products/992403"
+          width={500}
+          height={405}
+          allowFullScreen>
+        </iframe>
         {/* projects */}
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">My Projects</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
